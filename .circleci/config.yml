@@ -3,7 +3,7 @@ version: 2.1
 # add your orb below, to be used in integration tests (note: a @dev:alpha
 # release must exist.);
 orbs:
-  dantest-orb: bha/dantest-orb@dev:alpha
+  #dantest-orb: bha/dantest-orb@dev:alpha
   orb-tools: circleci/orb-tools@9.0
 
 # Pipeline parameters
@@ -28,8 +28,8 @@ jobs:
     executor: orb-tools/ubuntu
     steps:
       - checkout
-      - dantest-orb/greet:
-          greeting: Hoi hoi
+#      - dantest-orb/greet:
+#          greeting: Hoi hoi
 
 workflows:
   # This `lint-pack_validate_publish-dev` workflow will run on any commit.
