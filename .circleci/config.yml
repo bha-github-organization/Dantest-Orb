@@ -28,7 +28,8 @@ jobs:
     executor: orb-tools/ubuntu
     steps:
       - checkout
-    # - your-orb/your-orb-command
+      - dantest-orb/greet:
+          greeting: Hoi hoi
 
 workflows:
   # This `lint-pack_validate_publish-dev` workflow will run on any commit.
