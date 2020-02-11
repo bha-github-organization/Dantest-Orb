@@ -34,7 +34,7 @@ jobs:
 workflows:
   # This workflow exists only to simplify running local builds, therefore it need never run on the CI server.
   wf_integration-test-1:
-    when: never
+    when: << pipeline.parameters.run-integration-tests >>
     jobs:
       - integration-test-1
 
