@@ -3,7 +3,7 @@ version: 2.1
 # add your orb below, to be used in integration tests (note: a @dev:alpha
 # release must exist.);
 orbs:
-  #dantest-orb: bha/dantest-orb@dev:alpha
+  dantest-orb: bha/dantest-orb@dev:alpha
   orb-tools: circleci/orb-tools@9.0
 
 # Pipeline parameters
@@ -28,10 +28,16 @@ jobs:
     executor: orb-tools/ubuntu
     steps:
       - checkout
-#      - dantest-orb/greet:
-#          greeting: Hoi hoi
+      - dantest-orb/greet:
+          greeting: Hoi hoi
 
 workflows:
+  # This workflow exists only to simplify running local builds, therefore it need never run on the CI server.
+  wf_integration-test-1:
+    when: never
+    jobs:
+      - integration-test-1
+
   # This `lint-pack_validate_publish-dev` workflow will run on any commit.
   lint_pack-validate_publish-dev:
     unless: << pipeline.parameters.run-integration-tests >>

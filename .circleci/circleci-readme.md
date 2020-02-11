@@ -9,11 +9,15 @@ The local build runs in a docker container.
 
         circleci config process .circleci/config.yml > .circleci/local-config.yml
 
-  * Run a local build with the following command:
+  * Run a local build (a job from the self contained (non-workspace) config) with the following command:
           
-        circleci local execute -c .circleci/local-config.yml --job 'circleci-nancy-orb/job-test-run-default'
+        circleci local execute -c .circleci/local-config.yml --job 'integration-test-1'
 
-    With the above command, operations that cannot occur during a local build will show an error like this:
+    Typically both commands are run together:
+    
+        circleci config process .circleci/config.yml > .circleci/local-config.yml && circleci local execute -c .circleci/local-config.yml --job 'integration-test-1'
+    
+    Operations that cannot occur during a local build will show an error like this:
      
       ```
       ... Error: FAILED with error not supported
