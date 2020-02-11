@@ -35,6 +35,11 @@ workflows:
   # This workflow exists only to simplify running local builds, therefore it need never run on the CI server.
   wf_integration-test-1:
     triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              ignore: /.*/
     jobs:
       - integration-test-1
 
