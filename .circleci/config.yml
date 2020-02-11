@@ -32,7 +32,7 @@ jobs:
           greeting: Hoi hoi
 
 workflows:
-  # This workflow exists only to simplify running local builds, therefore it need never run on the CI server.
+  # This workflow exists only to simplify running local IT builds, therefore it need never run on the CI server.
   wf_integration-test-1:
     triggers:
       - schedule:
